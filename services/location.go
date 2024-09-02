@@ -16,7 +16,9 @@ type LocationsData struct {
 	Index []Locations `json:"index"`
 }
 
-func FetchAndUnmarshalLocations(url string) (*LocationsData, error) {
+func FetchAndUnmarshalLocations() (*LocationsData, error) {
+	url := "https://groupietrackers.herokuapp.com/api/locations"
+
 	client := &http.Client{
 		Timeout: 10 * time.Second,
 	}

@@ -16,7 +16,8 @@ type RelationsData struct {
 	Index []Relations `json:"index"`
 }
 
-func FetchAndUnmarshalRelations(url string) ([]Relations, error) {
+func FetchAndUnmarshalRelations() ([]Relations, error) {
+	url := "https://groupietrackers.herokuapp.com/api/relation"
 	// Create an HTTP client with a timeout
 	client := &http.Client{
 		Timeout: 10 * time.Second, // Set the timeout duration

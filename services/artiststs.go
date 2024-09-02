@@ -21,7 +21,8 @@ type Artist struct {
 }
 
 // FetchAndUnmarshal fetches JSON data from the URL and unmarshals it
-func FetchAndUnmarshalArtists(url string) ([]Artist, error) {
+func FetchAndUnmarshalArtists() ([]Artist, error) {
+	url := "https://groupietrackers.herokuapp.com/api/artists"
 	// Create an HTTP client with a timeout
 	client := &http.Client{
 		Timeout: 10 * time.Second, // Set the timeout duration

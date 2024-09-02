@@ -18,7 +18,8 @@ type DatesData struct {
 	Index []Date `json:"index"`
 }
 
-func FetchAndUnmarshalDates(url string) (*DatesData, error) {
+func FetchAndUnmarshalDates() (*DatesData, error) {
+	url := "https://groupietrackers.herokuapp.com/api/dates"
 	client := &http.Client{
 		Timeout: 10 * time.Second, // Set the timeout duration
 	}
