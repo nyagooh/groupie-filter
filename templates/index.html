@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+    <header>
+        <h1>List of Artists</h1>
+    </header>
+    <main>
+        <!-- Search form -->
+        <div class="search-container">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search for artists...">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
+        <h1>A bit of description about the project goes here</h1>
+        
+        <section id="artists">
+            {{range .}}
+            <a href="/artist/{{.ID}}" class="artist-link">
+                <div class="artist">
+                    <h2>{{.Name}}</h2>
+                    <img src="{{.Image}}" alt="{{.Name}}">
+                </div>
+            </a>
+            {{end}}
+        </section>
+    </main>
+</body>
+</html>
