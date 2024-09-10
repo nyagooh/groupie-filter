@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Dates</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Tour Dates</h1>
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dates">Dates</a></li>
+                <li><a href="/locations">Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Tour Dates Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artist Name</th>
+                    <th>Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Index}}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>
+                        <ul>
+                            {{range .Dates}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
