@@ -10,8 +10,11 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/dates", models.DatesHandler)
+	http.HandleFunc("/locations", models.LocationsHandler)
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/artist/", models.ArtistDetailsHandler)
+
 	http.HandleFunc("/search", models.SearchHandler)
 	fmt.Println("Server is starting...")
 	fmt.Println("Go on http://localhost:8080/")
