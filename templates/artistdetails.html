@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Name}} - Artist Details</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/">
 </head>
 <body>
     <header>
         <h1>{{.Name}}</h1>
+        <!-- Home Button -->
+        <a href="/" class="home-button">Home</a>
     </header>
     <main>
         <div class="artist-details">
@@ -16,7 +18,28 @@
             <p>Members: {{range .Members}}{{.}}, {{end}}</p>
             <p>Creation Date: {{.CreationDate}}</p>
             <p>First Album: {{.FirstAlbum}}</p>
-            <!-- Add more fields as needed -->
+
+            <!-- Tour dates and locations -->
+            <h2>Tour Dates & Locations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {{range $location, $dates := .Relations}}
+                    {{range $date := $dates}}
+                    <tr>
+                        <td>{{$location}}</td>
+                        <td>{{$date}}</td>
+                    </tr>
+                    {{end}}
+                    {{end}}
+                </tbody>
+            </table>
         </div>
     </main>
 </body>

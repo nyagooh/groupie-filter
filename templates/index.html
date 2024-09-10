@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artists</title>
-    <link rel="stylesheet" href="/static/style.css">
-
+    <link rel="stylesheet" href="/">
 </head>
 <body>
     <header>
         <h1>List of Artists</h1>
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/dates">Dates</a></li>
+                <li><a href="/locations">Locations</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <!-- Search form -->
@@ -20,9 +26,9 @@
             </form>
         </div>
 
-        <h1>A bit of description about the project goes here</h1>
-        <h1>A return home page is still missing</h1>
-        <h1> all status code errors should not be forgotten, and test files too</h1>
+        <h5>A bit of description about the project goes here</h5>
+        <h5>A return home page is still missing</h5>
+        <h5>All status code errors should not be forgotten, and test files too</h5>
         
         <section id="artists">
             {{range .}}
