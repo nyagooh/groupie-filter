@@ -18,6 +18,7 @@ type DatesData struct {
 	Index []Date `json:"index"`
 }
 
+// unmarshal dates alone
 func FetchAndUnmarshalDates() (*DatesData, error) {
 	url := "https://groupietrackers.herokuapp.com/api/dates"
 	client := &http.Client{
