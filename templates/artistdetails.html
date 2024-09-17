@@ -4,7 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Name}} - Artist Details</title>
-    <link rel="stylesheet" href="/">
+    <style>
+        /* Reset some default styling */
+        body, h1, h2, p, table, th, td, img {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 0 1rem;
+        }
+
+        /* Style the header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Style the home button */
+        .home-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: #555;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .home-button:hover {
+            background: #666;
+        }
+
+        /* Style the main section */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Style the artist details section */
+        .artist-details {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .artist-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .artist-details p {
+            margin-bottom: 1rem;
+        }
+
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,7 +117,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                     {{range $location, $dates := .Relations}}
                     {{range $date := $dates}}
                     <tr>
