@@ -4,7 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artists</title>
-    <link rel="stylesheet" href="/">
+    <style>
+        /* Reset some default styling */
+        body, h1, h2, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Style the header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Style the navigation bar */
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style the main section */
+        main {
+            padding: 1rem;
+        }
+
+        /* Style the search form */
+        .search-container {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-container form {
+            display: inline-block;
+            background: #fff;
+            padding: 0.5rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+        }
+
+        .search-container input[type="submit"] {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container input[type="submit"]:hover {
+            background: #555;
+        }
+
+        /* Style the artists section */
+        #artists {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .artist-link {
+            text-decoration: none;
+            color: inherit;
+            width: calc(25% - 1rem);
+        }
+
+        .artist {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .artist img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .artist h2 {
+            margin: 1rem 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,10 +142,6 @@
                 <input type="submit" value="Search">
             </form>
         </div>
-
-        <h5>A bit of description about the project goes here</h5>
-        <h5>A return home page is still missing</h5>
-        <h5>All status code errors should not be forgotten, and test files too</h5>
         
         <section id="artists">
             {{range .}}
