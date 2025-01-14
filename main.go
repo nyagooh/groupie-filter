@@ -4,12 +4,18 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"path/filepath"
 
 	"groupie/models"
 	"groupie/services"
 )
 
 func main() {
+	// Serve static files
+	staticDir := filepath.Join(".", "static")
+	fs := http.FileServer(http.Dir(staticDir))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
 	http.HandleFunc("/dates", models.DatesHandler)
 	http.HandleFunc("/locations", models.LocationsHandler)
 	http.HandleFunc("/", indexHandler)
