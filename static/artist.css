@@ -1,4 +1,3 @@
-
 /* Reset some default styling */
 body, h1, h2, p, img, ul, li {
     margin: 0;
@@ -276,22 +275,64 @@ transform: scaleX(1);
 }
 
 .social-media {
-margin-top: 15px; /* Space above social media icons */
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .social-media img {
-width: 30px; /* Adjust icon size */
-margin-right: 10px; /* Space between icons */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.social-media img:hover {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 4px 8px rgba(138, 79, 255, 0.3);
 }
 
 .collaborators {
-margin-top: 15px; /* Space above collaborators' images */
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .collab-img {
-width: 40px; /* Size of collaborator images */
-height: auto; /* Maintain aspect ratio */
-border-radius: 50%; /* Make images circular */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collab-img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(138, 79, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-media {
+        gap: 15px;
+    }
+    
+    .social-media img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .collaborators {
+        gap: 20px;
+    }
+    
+    .collab-img {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 /* Adjust for small screens */
