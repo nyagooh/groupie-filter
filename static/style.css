@@ -374,26 +374,6 @@ footer.container {
     transform: scaleX(1);
 }
 
-.collaborators {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.collab-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.collab-img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 8px 16px rgba(138, 79, 255, 0.3);
-}
-
 .social-media {
     margin-top: 25px;
     display: flex;
@@ -412,6 +392,26 @@ footer.container {
 .social-media img:hover {
     transform: scale(1.1) rotate(360deg);
     box-shadow: 0 4px 8px rgba(138, 79, 255, 0.3);
+}
+
+.collaborators {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.collab-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collab-img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(138, 79, 255, 0.3);
 }
 
 @media (max-width: 768px) {
