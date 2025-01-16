@@ -5,12 +5,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"groupie/services"
 	// Update with your actual package path
 )
 
 func TestFetchAndUnmarshalArtists(t *testing.T) {
 	// Mock data for artists, locations, and relations
-	artistsMock := []Artist{
+	artistsMock := []services.Artist{
 		{
 			ID:           1,
 			Image:        "image_url",
@@ -20,13 +21,13 @@ func TestFetchAndUnmarshalArtists(t *testing.T) {
 			FirstAlbum:   "Album 1",
 		},
 	}
-	locationsMock := LocationsData{
-		Index: []Locations{
+	locationsMock := services.LocationsData{
+		Index: []services.Locations{
 			{ID: 1, Locations: []string{"City 1", "City 2"}},
 		},
 	}
-	relationsMock := RelationsData{
-		Index: []Relations{
+	relationsMock := services.RelationsData{
+		Index: []services.Relations{
 			{ID: 1, DatesLocations: map[string][]string{"2024": {"City 1", "City 2"}}},
 		},
 	}
@@ -67,7 +68,7 @@ func TestFetchAndUnmarshalArtists(t *testing.T) {
 	}()
 
 	// Call the function to test
-	artists, err := FetchAndUnmarshalArtists()
+	artists, err := services.FetchAndUnmarshalArtists()
 
 	// Check for errors
 	if err != nil {
