@@ -5,18 +5,19 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"groupie/services"
 )
 
 // Mock data for locations
-var locationsMock = LocationData{
-	Index: []Index{
+var locationsMock = services.LocationData{
+	Index: []services.Index{
 		{ID: 1, Locations: []string{"Location1", "Location2"}},
 		{ID: 2, Locations: []string{"Location3", "Location4"}},
 	},
 }
 
 // Helper function to create a mock server for locations API
-func createMockLocationsServer(mockData LocationData) *httptest.Server {
+func createMockLocationsServer(mockData services.LocationData) *httptest.Server {
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(mockData)
@@ -33,7 +34,7 @@ func TestFetchAndUnmarshalLocations(t *testing.T) {
 	// Override the URL in the function to use the mock server
 
 	// Call the function to test
-	data, err := FetchAndUnmarshalLocations()
+	data, err := services.FetchAndUnmarshalLocations()
 
 	// Assert no error occurred
 	if err != nil {

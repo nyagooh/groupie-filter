@@ -5,18 +5,19 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"groupie/services"
 )
 
 // Mock data for dates
-var datesMock = DatesData{
-	Index: []Date{
+var datesMock = services.DatesData{
+	Index: []services.Date{
 		{ID: 1, Dates: []string{"2022-01-01", "2022-01-02"}},
 		{ID: 2, Dates: []string{"2022-02-01", "2022-02-02"}},
 	},
 }
 
 // Helper function to create a mock server for dates API
-func createMockDatesServer(mockData DatesData) *httptest.Server {
+func createMockDatesServer(mockData services.DatesData) *httptest.Server {
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(mockData)
@@ -33,7 +34,7 @@ func TestFetchAndUnmarshalDates(t *testing.T) {
 	// Override the URL in the function to use the mock server
 
 	// Call the function to test
-	data, err := FetchAndUnmarshalDates()
+	data, err := services.FetchAndUnmarshalDates()
 
 	// Assert no error occurred
 	if err != nil {
