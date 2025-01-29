@@ -64,7 +64,7 @@ This is a subproject of the main Groupie Tracker project:
    ```
 
 ## License
-This project is open source and distributed under the GNU General Public License v3.0. For more details, see the [LICENSE](https://choosealicense.com/licenses/gpl-3.0/) file.
+This project is open source and distributed under the GNU General Public License v3.0. For more details, see the [LICENSE](LICENSE) file.
 
 ## Contributions
 We welcome contributions to the project. To contribute:
