@@ -24,8 +24,40 @@
                     <li><a href="/Home">Home</a></li>
                     <li><a href="/dates">Dates</a></li>
                     <li><a href="/locations">Locations</a></li>
+                    <li><a href="filter.html">Filter</a></li>
+                    <div class="filter-container" style="display: none;">
+                        <h1>Filter Artists</h1>
+                        <form action="/filter" method="GET" class="filter-form">
+                            <div class="form-group">
+                                <label for="creationStart">Creation Year (Start):</label>
+                                <input type="number" id="creationStart" name="creationStart" placeholder="e.g., 1990">
+                            </div>
+                            <div class="form-group">
+                                <label for="creationEnd">Creation Year (End):</label>
+                                <input type="number" id="creationEnd" name="creationEnd" placeholder="e.g., 2000">
+                            </div>
+                            <div class="form-group">
+                                <label for="albumStart">First Album Year (Start):</label>
+                                <input type="number" id="albumStart" name="albumStart" placeholder="e.g., 1995">
+                            </div>
+                            <div class="form-group">
+                                <label for="albumEnd">First Album Year (End):</label>
+                                <input type="number" id="albumEnd" name="albumEnd" placeholder="e.g., 2005">
+                            </div>
+                            <div class="form-group">
+                                <label for="numberOfMembers">Number of Members:</label>
+                                <input type="number" id="numberOfMembers" name="numberOfMembers" placeholder="e.g., 4">
+                            </div>
+                            <div class="form-group">
+                                <label for="locations">Locations:</label>
+                                <input type="text" id="locations" name="locations" placeholder="e.g., Paris, New York">
+                            </div>
+                            <button type="submit" class="btn">Filter</button>
+                        </form>
+                    </div>
                 </ul>
             </nav>
+            
         </div>
     </header>
     <div class="hero">

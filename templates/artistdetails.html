@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Name}} - Artist Details</title>
     <link rel="stylesheet" href="/static/artist.css">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -42,6 +44,9 @@
                     {{end}}
                 {{end}}
             </div>
+
+            <h2>Tour Map Locations</h2>
+            <div id="map" style="height: 600px; width: 100%; border-radius: 20px;"></div>
         </div>
     </main>
     <footer>
@@ -73,15 +78,54 @@
             <a href="https://www.linkedin.com/in/granton-onyango-298ba6213/" target="_blank"><img src="/static/gonyango.png" alt="Granton Onyango" class="collab-img" /></a>
         </div>
     </footer>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.navbar ul');
+           
+        // Initialize Leaflet map
+        const map = L.map('map').setView([0, 0], 2); // Initial map view (lat, lon)
 
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('show');
-            });
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Function to fetch coordinates from OpenStreetMap API
+        function fetchCoordinates(location) {
+            const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}&limit=1`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data[0]) {
+                        const lat = data[0].lat;
+                        const lon = data[0].lon;
+                        addMarker(lat, lon, location);
+                    }
+                })
+                .catch(err => console.error('Error fetching coordinates:', err));
+        }
+
+        // Function to add marker to map
+        function addMarker(lat, lon, location) {
+            L.marker([lat, lon])
+                .addTo(map)
+                .bindPopup(location); // Show location name on click
+        }
+
+
+        const locations = [];
+        const locationElements = document.querySelectorAll('.tour-dates h3');
+
+        locationElements.forEach(element => {
+            locations.push(element.textContent.trim()); // Extract location text
+        });
+
+        // Loop through the locations passed from Go and fetch coordinates
+        locations.forEach(location => {
+            fetchCoordinates(location);
         });
     </script>
+    
 </body>
 </html>
