@@ -17,6 +17,7 @@ type Artist struct {
 	FirstAlbum   string              `json:"firstAlbum"`
 	Locations    []string            `json:"-"`
 	Relations    map[string][]string `json:"-"`
+
 }
 
 // Locations represents the JSON structure for artist locations
@@ -126,5 +127,7 @@ func FetchAndUnmarshalArtists() ([]Artist, error) {
 		}
 	}
 
+	// test if artists arre unmarshalled correctly
+	//fmt.Println(artists)
 	return artists, nil
 }
