@@ -49,7 +49,7 @@ func main() {
 	http.HandleFunc("/searchLocation", models.SearchLocationHandler)
 
 	//
-	http.HandleFunc("/searchMap", models.SearchMapHandler)
+	//http.HandleFunc("/searchMap", models.SearchMapHandler)
 
 	http.HandleFunc("/searchDate", models.SearchDatesHandler)
 	http.HandleFunc("/filter", models.FilteredArtistsHandler)
