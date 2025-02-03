@@ -61,7 +61,7 @@ The code for this project is available on GitHub:
    ```
 
 ## Example use
-
+![Soja Tour Map](static/Screenshot from 2025-02-03 15-18-29.png)
 ## Contributions
 We welcome contributions to the project. To contribute:
 1. Fork the repository.
