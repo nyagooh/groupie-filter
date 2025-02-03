@@ -42,11 +42,10 @@ header {
 header .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 .navbar {
-    display: flex;  /* Ensure the navbar is in the same row */
-    gap: 20px;      /* Space out the nav links */
+    display: flex; 
+    gap: 20px; /* Ensure the navbar is in the same row */   /* Space out the nav links */
     list-style-type: none; /* Remove default list styles */
 }
 .go-back {
@@ -77,6 +76,7 @@ header .container {
         list-style-type: none;
         display: flex;
         gap: 20px;
+        
     }
     
     .navbar a {
