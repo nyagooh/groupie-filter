@@ -1,39 +1,36 @@
-# Groupie Tracker - Search Bar
+# Groupie Tracker - Geolocolization
 
 ## Project Description
-The Groupie Tracker Search Bar project focuses on creating a functional search feature for a web application. This feature enables clients to search through data for specific attributes, such as artists, members, or other relevant information, and return results in an intuitive and user-friendly manner.
+The Geolocalization project utilizes OpenStreetMap and Leaflet.js to provide an interactive mapping experience. It enables users to visualize and interact with geographic locations dynamically, making it useful for applications that require location tracking and mapping.
 
 ### Key Features
-1. **Search Cases**:
-    - Artist/Band Name
-    - Members
-    - Locations
-    - First Album Date
-    - Creation Date
+1. **Interactive Map Integration:**
 
-2. **Case-Insensitive Search**:
-    - The search functionality is designed to be case-insensitive, ensuring flexibility for users.
+  - Displays locations dynamically on an interactive map using Leaflet.js.
 
-3. **Typing Suggestions**:
-    - As the user types, suggestions are displayed dynamically.
-    - Suggestions identify and indicate the type of the result (e.g., member, artist/band).
+  - Supports zooming, panning, and marker placement.
 
-4. **Example Behavior**:
-    - Typing "phil" might suggest:
-      - "Phil Collins - Member"
-      - "Phil Collins - Artist/Band"
+2. **Location Search:**
+
+ - Users can search for locations by name.
+
+ - The application fetches coordinates from the OpenStreetMap API (Nominatim) to place markers on the map.
+
+3. **Automatic Marker Placement:**
+
+ - Extracts location names from HTML elements (e.g., event listings or tour dates).
+
+ - Fetches coordinates dynamically and places markers with popups showing location names.
 
 ### Technology and Approach
-- The application leverages efficient algorithms to provide real-time search suggestions.
-- The UI focuses on responsiveness and clarity to ensure an excellent user experience.
+- The application integrates Leaflet.js for rendering interactive maps.
+-  OpenStreetMap API (Nominatim) is used to fetch location coordinates dynamically.
+-  JavaScript is utilized to parse location data and update the map in real-time.
+-  The UI is designed to be simple and responsive for easy interaction.
 
 ## Repository
 The code for this project is available on GitHub:
-[https://github.com/nyagooh/Groupie-Tracker.git](https://github.com/nyagooh/Groupie-Tracker.git)
-
-### Main Project
-This is a subproject of the main Groupie Tracker project:
-[https://learn.zone01kisumu.ke/git/kevwasonga/groupie-tracker](https://learn.zone01kisumu.ke/git/kevwasonga/groupie-tracker)
+[Geolocolization](https://github.com/nyagooh/geolocalization.git)
 
 ## Collaborators
 - [**Nyagooh Maina**](https://www.linkedin.com/in/maina-anne-37797820b/)
@@ -43,12 +40,12 @@ This is a subproject of the main Groupie Tracker project:
 ## Usage
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/nyagooh/Groupie-Tracker.git
+   git clone https://github.com/nyagooh/geolocalization.git
    ```
 
 2. **Navigate to the Project Directory**:
    ```bash
-   cd Groupie-Tracker
+   cd GEOLOCALIZATION
    ```
 
 3. **Run the Server**:
@@ -63,8 +60,7 @@ This is a subproject of the main Groupie Tracker project:
    http://localhost:8080
    ```
 
-## License
-This project is open source and distributed under the GNU General Public License v3.0. For more details, see the [LICENSE](LICENSE) file.
+## Example use
 
 ## Contributions
 We welcome contributions to the project. To contribute:
@@ -77,7 +73,7 @@ We welcome contributions to the project. To contribute:
 ## Feedback
 We encourage feedback and suggestions. Feel free to open an issue or contact any of the collaborators directly.
 
----
+## License
+This project is open source and distributed under the GNU General Public License v3.0. For more details, see the [LICENSE](LICENSE) file.
 
-Thank you for your interest in Groupie Tracker Search Bar!
 
