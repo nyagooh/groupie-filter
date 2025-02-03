@@ -4,7 +4,6 @@ import (
 	"html/template"
 	"net/http"
 	"path/filepath"
-	"slices"
 	"strings"
 
 	"groupie/services"
@@ -30,7 +29,7 @@ func SearchDatesHandler(w http.ResponseWriter, r *http.Request) {
 				// fmt.Println(date)
 				if strings.Contains(strings.ToLower(date), strings.ToLower(query)) {
 
-					if slices.Contains(artistNames, artist.Name) {
+					if slicesContains(artist.Name, artistNames) {
 						continue
 					}
 					filteredArtists = append(filteredArtists, artist)
@@ -55,4 +54,12 @@ func SearchDatesHandler(w http.ResponseWriter, r *http.Request) {
 func formatDateInput(s string) string {
 	splitDate := strings.Split(s, "-")
 	return splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0]
+}
+func slicesContains(s string, arr []string) bool {
+	for _, v := range arr {
+		if v == s {
+			return true
+		}
+	}
+	return false
 }

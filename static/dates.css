@@ -45,7 +45,7 @@ header .container {
     align-items: center;
 }
 
-.go-back {
+#go-back {
     background-color: var(--text-color);
     background-image:url(/static/back.png) ;
     background-size: contain;
@@ -57,7 +57,7 @@ header .container {
     transition: transform 0.2s ease;
 }
 
-.go-back:hover {
+#go-back:hover{
     transform: scale(1.1);
 }
 .hamburger {
