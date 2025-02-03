@@ -44,92 +44,23 @@ header .container {
     justify-content: space-between;
     align-items: center;
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-.styled-image {
-width: 50px;  
-border-radius: 30%; 
-object-fit: cover;
+.go-back {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s ease;
 }
 
-.logo span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-}
-.hamburger {
-display: none;
-background: none;
-border: none;
-font-size: 2rem;
-color: var(--text-color);
-cursor: pointer;
-z-index: 1001;
-}
-.navbar ul {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
+.go-back:hover {
+    transform: scale(1.1);
 }
 
-.navbar a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
+.go-back img {
+    width: 24px;
+    height: 24px;
 }
 
-.navbar a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.navbar a:hover {
-    color: var(--accent-color);
-}
-
-.navbar a:hover::after {
-    transform: scaleX(1);
-}
-
-
-/* Hide the dropdown by default */
-.navbar .dropdown {
-display: none;
-flex-direction: column;
-background-color: rgba(26, 26, 26, 0.9);
-position: absolute;
-top: 100%;
-left: 0;
-width: 100%;
-padding: 1rem 0;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-z-index: 1000;
-}
-
-.navbar .dropdown a {
-padding: 0.5rem 1rem;
-text-align: center;
-width: 100%;
-}
-
-/* Display dropdown menu on toggle */
-.navbar.active .dropdown {
-display: flex;
-}
 h1 {
     font-size: 2rem;
     font-weight: 700;
