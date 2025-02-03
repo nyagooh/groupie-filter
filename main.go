@@ -58,6 +58,9 @@ func main() {
 	fmt.Println("Go on http://localhost:8080/")
 	fmt.Println("To shut down the server press CTRL + C")
 	http.ListenAndServe(":8080", nil)
+	if err := http.ListenAndServe(":8080", nil); err != nil && err != http.ErrServerClosed {
+		log.Fatalf("Server failed: %v", err) // Fatal stops execution if server crashes
+	}
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
