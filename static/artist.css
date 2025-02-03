@@ -48,7 +48,7 @@ header .container {
     gap: 20px; /* Ensure the navbar is in the same row */   /* Space out the nav links */
     list-style-type: none; /* Remove default list styles */
 }
-.go-back {
+#go-back {
     background-color: var(--text-color);
     background-image:url(/static/back.png) ;
     background-size: contain;
@@ -60,7 +60,7 @@ header .container {
     transition: transform 0.2s ease;
 }
 
-.go-back:hover {
+#go-back:hover {
     transform: scale(1.1);
 }
 .hamburger {
