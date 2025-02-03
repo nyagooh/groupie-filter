@@ -45,10 +45,11 @@ header .container {
     align-items: center;
 }
 .go-back {
-    background: none;
-    border: none;
+    background: var(--text-color);
+    border-radius:10px ;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    padding: 8px;
     transition: transform 0.2s ease;
 }
 
@@ -57,8 +58,8 @@ header .container {
 }
 
 .go-back img {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
 }
 
 h1 {
