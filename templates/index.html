@@ -24,14 +24,6 @@
                     <li><a href="/Home">Home</a></li>
                     <li><a href="/dates">Dates</a></li>
                     <li><a href="/locations">Locations</a></li>
-                    <li>
-                        <button class="filter-btn" onclick="toggleFilter()">!-- Filter Icon (SVG) -->
-                            <svg class="filter-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 4h14a1 1 0 0 1 .8 1.6l-4.9 6.3V16a1 1 0 0 1-.4.8l-2 1.5a1 1 0 0 1-1.6-.8v-5.2L2.2 5.6A1 1 0 0 1 3 4z"/>
-                            </svg>
-                            Filter
-                        </button>
-                    </li>
                 </ul>
                 </ul>
             </nav>
@@ -49,6 +41,14 @@
                 </form>
             </div>
         </div>
+        <div class="filter-container">
+            <button id="filterButton" class="filter-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="filter-icon" viewBox="0 0 16 16">
+                <path d="M10 12.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path d="M2 3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3zm11 1a2 2 0 1 0-4 0h4zm-3 4a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h7z"/>
+              </svg>
+              <span class="filter-text">Filter</span>
+            </button>
     </div>
     <main>
         <div class="container">
