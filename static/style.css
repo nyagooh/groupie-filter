@@ -142,7 +142,26 @@ header .container {
 .navbar.active .dropdown {
     display: flex;
 }
-
+.filter-btn {
+    background:var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+.filter-btn:hover {
+    background:var(--secondary-color);
+}
+.filter-icon {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
 .hero {
     text-align: center;
     padding: 4rem 0;
