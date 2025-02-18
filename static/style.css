@@ -172,14 +172,14 @@ button {
 
 /* Toggle Filters Button */
 #toggleFilters {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     color: var(--text-color);
     margin-left: 10px;
     display: flexend;
 }
 
 #toggleFilters:hover {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     transform: scale(1.05);
 }
 
