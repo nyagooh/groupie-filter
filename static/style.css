@@ -160,9 +160,91 @@ header .container {
     margin-bottom: 2rem;
 }
 
+/* General Button Styles */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Toggle Filters Button */
+#toggleFilters {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin-left: 10px;
+    display: flexend;
+}
+
+#toggleFilters:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Apply Filters Button */
+#applyFilters {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+#applyFilters:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Filter Panel Styles */
+#filterPanel {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+#filterPanel label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+#filterPanel input[type="date"],
+#filterPanel input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+#filterPanel .checkbox-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#filterPanel .checkbox-list label {
+    display: inline-block;
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+#filterPanel .checkbox-list input[type="checkbox"] {
+    margin-right: 5px;
+}
+
 .search-container {
     margin-bottom: 3rem;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
