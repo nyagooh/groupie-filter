@@ -191,111 +191,57 @@ header .container {
     transition: fill 0.3s ease, transform 0.2s ease;
 }
 
-/* Toggle Filters Button */
-#toggleFilters {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#toggleFilters:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
-
-/* Apply Filters Button */
-#applyFilters {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    margin-top: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#applyFilters:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.05);
-}
-
-/* Filter Panel */
 #filterPanel {
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
     color: var(--text-color);
     padding: 20px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: none;
+    border-radius: 8px;
+    width: 300px;
     position: absolute;
-    top: 50px;
-    left: 10px;
-    width: 280px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
+    top: 160px;
+    right: 20px;
+  }
 
-#filterPanel.active {
+  #filterPanel label {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Labels */
-#filterPanel label {
-    display: block;
-    margin-bottom: 5px;
+    margin-top: 10px;
     font-weight: bold;
-    color: var(--secondary-color);
-}
+  }
 
-/* Input Fields */
-#filterPanel input[type="date"],
-#filterPanel input[type="number"] {
+  #filterPanel input {
     width: 100%;
     padding: 8px;
+    margin-top: 5px;
     margin-bottom: 10px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
+    border: none;
+    border-radius: 4px;
+  }
 
-/* Checkbox List */
-#filterPanel .checkbox-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+  .checkbox-list label {
+    display: block;
+    margin-left: 10px;
+  }
 
-#filterPanel .checkbox-list label {
-    display: inline-block;
-    background-color: var(--primary-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#filterPanel .checkbox-list label:hover {
+  #applyFilters {
     background-color: var(--accent-color);
-}
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
 
-#filterPanel .checkbox-list input[type="checkbox"] {
-    margin-right: 5px;
-}
-
+  #closeFilter {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 
 .search-container {
     margin-bottom: 3rem;
