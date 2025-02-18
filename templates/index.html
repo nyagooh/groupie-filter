@@ -61,7 +61,7 @@
         </div>
     </header>
     <div class="hero">
-        <div class="container">
+        <dv class="container">
             <h1>Discover Your Favorite Artists</h1>
             <div class="search-container">
                 <form action="/search" method="GET">
@@ -69,6 +69,34 @@
                     <div class="suggestions"></div>
                     <input type="submit" value="Search">
                 </form>
+            </div>
+            <div class="filters">
+                <button id="toggleFilters">Filters</button>
+                <div id="filterPanel" style="display: none;">
+                    <!-- Filter by Creation Date -->
+                    <label>Creation Date:</label>
+                    <input type="date" id="creation_start">
+                    <input type="date" id="creation_end">
+        
+                    <!-- Filter by First Album Date -->
+                    <label>First Album Date:</label>
+                    <input type="date" id="album_start">
+                    <input type="date" id="album_end">
+        
+                    <!-- Filter by Number of Members -->
+                    <label>Members:</label>
+                    <input type="number" id="members_min">
+                    <input type="number" id="members_max">
+        
+                    <!-- Filter by Concert Locations -->
+                    <label>Concert Locations:</label>
+                    <div class="checkbox-list">
+                        <label><input type="checkbox" value="Seattle"> Seattle</label>
+                        <label><input type="checkbox" value="LA"> Los Angeles</label>
+                        <label><input type="checkbox" value="NYC"> New York</label>
+                    </div>
+                    <button id="applyFilters">Apply</button>
+                </div>
             </div>
         </div>
     </div>
