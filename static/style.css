@@ -161,15 +161,28 @@ header .container {
 }
 
 /* General Button Styles */
-button {
+
+.filter-btn {
+    color: var(--bg-color);
+    text-decoration: solid;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     font-size: 16px;
+    background-color: rgba (138, 79, 255, -0.5);
+    gap : 4px;
+    display: flex;
+    justify-content: space-between;align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.filter-icon {
+    width: 34px;
+    height: 44px;
+    fill: var(--accent-color); /* Use the text color for the icon */
+    transition: fill 0.3s ease, transform 0.2s ease;
+}
 /* Toggle Filters Button */
 #toggleFilters {
     background-color: var(--accent-color);
@@ -245,6 +258,7 @@ button {
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;

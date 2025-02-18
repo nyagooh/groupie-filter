@@ -71,10 +71,9 @@
                 </form>
            
             <div class="filters">
-                <button id="toggleFilters">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="filter-icon">
-                        <path d="M3 5a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V5zM3 10a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zM3 17a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" />
-                    </svg>
+                <button class="filter-btn" onclick="toggleDropdown()">Filter
+                <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 11V9h10v2H7zm-4 4v-2h18v2H3zm6 4v-2h6v2H9z"/></svg>
+                <div id="filterPanel" style="display: none;">
                 </button>
                 <div id="filterPanel" style="display: none;">
                     <!-- Filter by Creation Date -->
@@ -154,6 +153,9 @@
     </footer>
     
     <script>
+                function toggleDropdown() {
+            document.getElementById('dropdown').classList.toggle('active');
+        }
         const menuToggle = document.querySelector('.hamburger');
     const navbar = document.querySelector('.navbar');
 
