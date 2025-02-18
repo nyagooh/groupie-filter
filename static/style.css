@@ -162,33 +162,47 @@ header .container {
 
 /* General Button Styles */
 
+/* Filter Button */
 .filter-btn {
     color: var(--text-color);
-    text-decoration: solid;
+    text-decoration: none;
     padding: 10px 20px;
     border: none;
     border-radius: 30px;
     font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.1);
-    gap : 4px;
+    background-color: rgba(255, 255, 255, 0.05); /* More transparent */
+    gap: 6px;
     display: flex;
-    justify-content: space-between;align-items: center;
+    align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Filter Icon */
 .filter-icon {
     width: 34px;
-    height: 44px;
-    fill: var(--accent-color); /* Use the text color for the icon */
+    height: 34px;
+    fill: var(--accent-color);
     transition: fill 0.3s ease, transform 0.2s ease;
 }
+
 /* Toggle Filters Button */
 #toggleFilters {
     background-color: var(--accent-color);
     color: var(--text-color);
     margin-left: 10px;
-    display: flexend;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #toggleFilters:hover {
@@ -201,6 +215,11 @@ header .container {
     background-color: var(--primary-color);
     color: var(--text-color);
     margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #applyFilters:hover {
@@ -208,23 +227,39 @@ header .container {
     transform: scale(1.05);
 }
 
-/* Filter Panel Styles */
+/* Filter Panel */
 #filterPanel {
     background-color: var(--bg-color);
     color: var(--text-color);
     padding: 20px;
     border: 1px solid var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none; /* Hidden by default */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 280px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+#filterPanel.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Labels */
 #filterPanel label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
     color: var(--secondary-color);
 }
 
+/* Input Fields */
 #filterPanel input[type="date"],
 #filterPanel input[type="number"] {
     width: 100%;
@@ -236,6 +271,7 @@ header .container {
     color: var(--text-color);
 }
 
+/* Checkbox List */
 #filterPanel .checkbox-list {
     display: flex;
     flex-wrap: wrap;
@@ -248,11 +284,18 @@ header .container {
     padding: 5px 10px;
     border-radius: 5px;
     color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filterPanel .checkbox-list label:hover {
+    background-color: var(--accent-color);
 }
 
 #filterPanel .checkbox-list input[type="checkbox"] {
     margin-right: 5px;
 }
+
 
 .search-container {
     margin-bottom: 3rem;
