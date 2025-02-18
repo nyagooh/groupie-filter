@@ -72,31 +72,34 @@
                 <button class="filter-btn" onclick="toggleDropdown()">Filter
                 <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 11V9h10v2H7zm-4 4v-2h18v2H3zm6 4v-2h6v2H9z"/></svg>
                 </button>
-                <div id="filterPanel" style="display: none;">
+                <div id="filterPanel">
+                    <button id="closeFilter">X</button>
                     <!-- Filter by Creation Date -->
-                    <label>Creation Date:</label>
+                    <label>Creation Date Range:</label>
                     <input type="date" id="creation_start">
                     <input type="date" id="creation_end">
-        
+                    
                     <!-- Filter by First Album Date -->
-                    <label>First Album Date:</label>
+                    <label>First Album Date Range:</label>
                     <input type="date" id="album_start">
                     <input type="date" id="album_end">
-        
+                    
                     <!-- Filter by Number of Members -->
                     <label>Members:</label>
-                    <input type="number" id="members_min">
-                    <input type="number" id="members_max">
-        
+                    <input type="number" id="members_min" placeholder="Min">
+                    <input type="number" id="members_max" placeholder="Max">
+                    
                     <!-- Filter by Concert Locations -->
                     <label>Concert Locations:</label>
                     <div class="checkbox-list">
-                        <label><input type="checkbox" value="Seattle"> Seattle</label>
-                        <label><input type="checkbox" value="LA"> Los Angeles</label>
-                        <label><input type="checkbox" value="NYC"> New York</label>
+                      <label><input type="checkbox" value="Seattle"> Seattle</label>
+                      <label><input type="checkbox" value="LA"> Los Angeles</label>
+                      <label><input type="checkbox" value="NYC"> New York</label>
                     </div>
+                    
                     <button id="applyFilters">Apply</button>
-                </div>
+                  </div>
+                  
             </div>
         </div>
         </div>
@@ -172,8 +175,6 @@
                 artist.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
             });
         });
-    </script>
-    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.navbar ul');
@@ -182,8 +183,6 @@
                 navMenu.classList.toggle('show');
             });
         });
-    </script>
-    <script>
        function toggleDropdown() {
     const filterPanel = document.getElementById("filterPanel");
     
@@ -199,6 +198,9 @@
         }, 10); // Small delay to trigger animation
     }
 }
+document.getElementById("closeFilter").addEventListener("click", function() {
+    document.getElementById("filterPanel").style.display = "none";
+  });
 
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.querySelector('.search-input');
