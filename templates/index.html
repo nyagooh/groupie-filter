@@ -69,11 +69,9 @@
                     <div class="suggestions"></div>
                     <input type="submit" value="Search">
                 </form>
-           
             <div class="filters">
                 <button class="filter-btn" onclick="toggleDropdown()">Filter
                 <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 11V9h10v2H7zm-4 4v-2h18v2H3zm6 4v-2h6v2H9z"/></svg>
-                <div id="filterPanel" style="display: none;">
                 </button>
                 <div id="filterPanel" style="display: none;">
                     <!-- Filter by Creation Date -->
@@ -153,9 +151,6 @@
     </footer>
     
     <script>
-                function toggleDropdown() {
-            document.getElementById('dropdown').classList.toggle('active');
-        }
         const menuToggle = document.querySelector('.hamburger');
     const navbar = document.querySelector('.navbar');
 
@@ -190,6 +185,22 @@
         });
     </script>
     <script>
+       function toggleDropdown() {
+    const filterPanel = document.getElementById("filterPanel");
+    
+    if (filterPanel.classList.contains("active")) {
+        filterPanel.classList.remove("active");
+        setTimeout(() => {
+            filterPanel.style.display = "none";
+        }, 300); // Wait for animation to finish before hiding
+    } else {
+        filterPanel.style.display = "block";
+        setTimeout(() => {
+            filterPanel.classList.add("active");
+        }, 10); // Small delay to trigger animation
+    }
+}
+
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.querySelector('.search-input');
             const suggestionsContainer = document.querySelector('.suggestions');
