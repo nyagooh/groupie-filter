@@ -76,14 +76,19 @@
                     <button id="closeFilter">X</button>
                     <!-- Filter by Creation Date -->
                     <label>Creation Date Range:</label>
-                    <input type="date" id="creation_start">
-                    <input type="date" id="creation_end">
+                    <input type="range" id="creation_range" class="range-slider" min="0" max="365" step="1" value="0">
+                    <div class="range-value">
+                      <span id="creation_range_min">Start: 01/01/2025</span>
+                      <span id="creation_range_max">End: 12/31/2025</span>
+                    </div>
                     
-                    <!-- Filter by First Album Date -->
+                   <!-- Filter by First Album Date Range (using sliders) -->
                     <label>First Album Date Range:</label>
-                    <input type="date" id="album_start">
-                    <input type="date" id="album_end">
-                    
+                    <input type="range" id="album_range" class="range-slider" min="0" max="365" step="1" value="0">
+                    <div class="range-value">
+                        <span id="album_range_min">Start: 01/01/2025</span>
+                        <span id="album_range_max">End: 12/31/2025</span>
+                    </div>
                     <!-- Filter by Number of Members -->
                     <label>Members:</label>
                     <input type="number" id="members_min" placeholder="Min">
@@ -91,11 +96,7 @@
                     
                     <!-- Filter by Concert Locations -->
                     <label>Concert Locations:</label>
-                    <div class="checkbox-list">
-                      <label><input type="checkbox" value="Seattle"> Seattle</label>
-                      <label><input type="checkbox" value="LA"> Los Angeles</label>
-                      <label><input type="checkbox" value="NYC"> New York</label>
-                    </div>
+                    <div class="checkbox-list" id="locationCheckboxes"></div>
                     
                     <button id="applyFilters">Apply</button>
                   </div>
