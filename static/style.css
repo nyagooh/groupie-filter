@@ -159,9 +159,15 @@ header .container {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     margin-bottom: 2rem;
 }
+/* .container {
+    width: 100%;
+    max-width: 1200px;
+} */
 
 /* General Button Styles */
-
+.filters {
+    position:relative;
+}
 /* Filter Button */
 .filter-btn {
     color: var(--text-color);
@@ -198,8 +204,13 @@ header .container {
     border-radius: 8px;
     width: 300px;
     position: absolute;
+    top: calc(100% + 10px); /* Position just below the filter button */
+    left: 0; /* Align with the left edge of the filter button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+    display: none; /* Initially hidden */
     top: 160px;
     right: 20px;
+    z-index: 1000;
   }
 
   #filterPanel label {
@@ -324,7 +335,7 @@ main {
 }
 
 #artists {
-    margin-top: -50px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
