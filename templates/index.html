@@ -24,43 +24,13 @@
                     <li><a href="/Home">Home</a></li>
                     <li><a href="/dates">Dates</a></li>
                     <li><a href="/locations">Locations</a></li>
-                    <div class="filter-container" style="display: none;">
-                        <h1>Filter Artists</h1>
-                        <form action="/filter" method="GET" class="filter-form">
-                            <div class="form-group">
-                                <label for="creationStart">Creation Year (Start):</label>
-                                <input type="number" id="creationStart" name="creationStart" placeholder="e.g., 1990">
-                            </div>
-                            <div class="form-group">
-                                <label for="creationEnd">Creation Year (End):</label>
-                                <input type="number" id="creationEnd" name="creationEnd" placeholder="e.g., 2000">
-                            </div>
-                            <div class="form-group">
-                                <label for="albumStart">First Album Year (Start):</label>
-                                <input type="number" id="albumStart" name="albumStart" placeholder="e.g., 1995">
-                            </div>
-                            <div class="form-group">
-                                <label for="albumEnd">First Album Year (End):</label>
-                                <input type="number" id="albumEnd" name="albumEnd" placeholder="e.g., 2005">
-                            </div>
-                            <div class="form-group">
-                                <label for="numberOfMembers">Number of Members:</label>
-                                <input type="number" id="numberOfMembers" name="numberOfMembers" placeholder="e.g., 4">
-                            </div>
-                            <div class="form-group">
-                                <label for="locations">Locations:</label>
-                                <input type="text" id="locations" name="locations" placeholder="e.g., Paris, New York">
-                            </div>
-                            <button type="submit" class="btn">Filter</button>
-                        </form>
-                    </div>
                 </ul>
             </nav>
             
         </div>
     </header>
     <div class="hero">
-        <dv class="container">
+        <div class="container">
             <h1>Discover Your Favorite Artists</h1>
             <div class="search-container">
                 <form action="/search" method="GET">
@@ -102,7 +72,6 @@
                   </div>
                   
             </div>
-        </div>
         </div>
     </div>
     <main>
@@ -202,6 +171,31 @@
 document.getElementById("closeFilter").addEventListener("click", function() {
     document.getElementById("filterPanel").style.display = "none";
   });
+  createLocationCheckboxes();
+
+// Handle the range slider value change for Creation Date
+document.getElementById('creation_range').addEventListener('input', function () {
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + this.value);
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
+  document.getElementById('creation_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
+  document.getElementById('creation_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
+});
+
+// Handle the range slider value change for First Album Date
+document.getElementById('album_range').addEventListener('input', function () {
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + this.value);
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
+  document.getElementById('album_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
+  document.getElementById('album_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
+});
+
+document.getElementById("closeFilter").addEventListener("click", function() {
+  document.getElementById("filterPanel").style.display = "none";
+})
 
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.querySelector('.search-input');
