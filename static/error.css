@@ -1,0 +1,55 @@
+:root {
+    --bg-color: #1A1A1A;
+    --primary-color: #2A1B3D;
+    --secondary-color: #9232A9;
+    --accent-color: #8A4FFF;
+    --text-color: #FFFFFF;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF; /* Set background to white */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    text-align: center;
+    background-color: var(--bg-color); /* Use the bg-color variable */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--text-color); /* Use the text-color variable */
+}
+
+.error-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.go-home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-color); /* Use the accent-color variable */
+    color: var(--text-color); /* Use the text-color variable */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.go-home-button:hover {
+    background-color: var(--secondary-color); /* Use the secondary-color variable */
+}
