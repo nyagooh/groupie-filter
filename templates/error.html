@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error {{.StatusCode}}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="error-container">
+        <img src="static/11527922.jpg{{printf "%d-image.png" .StatusCode}}" alt="Error {{.StatusCode}} Image" class="error-image">
+        <h1>{{.StatusCode}} {{.ErrorMessage}}</h1>
+        <p>{{.Feedback}}</p>
+        <a href="/" class="go-home-button">Go Home</a>
+    </div>
+</body>
+</html>
