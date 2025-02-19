@@ -159,16 +159,7 @@ header .container {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     margin-bottom: 2rem;
 }
-/* .container {
-    width: 100%;
-    max-width: 1200px;
-} */
 
-/* General Button Styles */
-.filters {
-    position:relative;
-}
-/* Filter Button */
 .filter-btn {
     color: var(--text-color);
     text-decoration: none;
@@ -335,7 +326,7 @@ main {
 }
 
 #artists {
-    margin-top: 50px;
+    margin-top: 150px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
