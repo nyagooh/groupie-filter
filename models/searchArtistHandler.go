@@ -12,14 +12,11 @@ import (
 // Add function that fetch data,process search query and renders result to index.html
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 
-
-	query := r.URL.Query().Get("query")// accepting user input
-
-
+	query := r.URL.Query().Get("query") // accepting user input
 
 	artists, err := services.FetchAndUnmarshalArtists()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -32,12 +29,13 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "index.html"))
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
 	err = tmpl.Execute(w, filteredArtists)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
+		return
 	}
 }
