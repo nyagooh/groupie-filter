@@ -194,7 +194,7 @@ header .container {
     padding: 20px;
     border-radius: 8px;
     width: 300px;
-    position: absolute;
+    /* position: absolute; */
     top: calc(100% + 10px); /* Position just below the filter button */
     left: 0; /* Align with the left edge of the filter button */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
@@ -205,7 +205,7 @@ header .container {
   }
 
   #filterPanel label {
-    display: block;
+    display: flex;
     margin-top: 10px;
     font-weight: bold;
   }

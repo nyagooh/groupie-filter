@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel = "stylesheet" href = "/static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                     <li><a href="/locations">Locations</a></li>
                 </ul>
             </nav>
-            
+
         </div>
     </header>
     <div class="hero">
@@ -34,189 +34,197 @@
             <h1>Discover Your Favorite Artists</h1>
             <div class="search-container">
                 <form action="/search" method="GET">
-                    <input type="text" name="query" class="search-input" placeholder="Search artists, bands, or genres...">
+                    <input type="text" name="query" class="search-input"
+                        placeholder="Search artists, bands, or genres...">
                     <div class="suggestions"></div>
                     <input type="submit" value="Search">
                 </form>
-            <div class="filters">
-                <button class="filter-btn" onclick="toggleDropdown()">Filter
-                <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 11V9h10v2H7zm-4 4v-2h18v2H3zm6 4v-2h6v2H9z"/></svg>
-                </button>
-                <div id="filterPanel">
-                    <button id="closeFilter">X</button>
-                    <!-- Filter by Creation Date -->
-                    <label>Creation Date Range:</label>
-                    <input type="range" id="creation_range" class="range-slider" min="0" max="365" step="1" value="0">
-                    <div class="range-value">
-                      <span id="creation_range_min">Start: 01/01/2025</span>
-                      <span id="creation_range_max">End: 12/31/2025</span>
-                    </div>
+                <div class="filters">
+                    <button class="filter-btn" onclick="toggleDropdown()">Filter
+                        <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7 11V9h10v2H7zm-4 4v-2h18v2H3zm6 4v-2h6v2H9z" />
+                        </svg>
+                    </button>
                     
-                   <!-- Filter by First Album Date Range (using sliders) -->
-                    <label>First Album Date Range:</label>
-                    <input type="range" id="album_range" class="range-slider" min="0" max="365" step="1" value="0">
-                    <div class="range-value">
-                        <span id="album_range_min">Start: 01/01/2025</span>
-                        <span id="album_range_max">End: 12/31/2025</span>
-                    </div>
-                    <!-- Filter by Number of Members -->
-                    <label>Members:</label>
-                    <input type="number" id="members_min" placeholder="Min">
-                    <input type="number" id="members_max" placeholder="Max">
-                    
-                    <!-- Filter by Concert Locations -->
-                    <label>Concert Locations:</label>
-                    <div class="checkbox-list" id="locationCheckboxes"></div>
-                    
-                    <button id="applyFilters">Apply</button>
-                  </div>
-                  
+                </div>
+            </div>
+            <div id="filterPanel">
+                <button id="closeFilter">X</button>
+                <!-- Filter by Creation Date -->
+                <label>Creation Date Range:</label>
+                <input type="range" id="creation_range" class="range-slider" min="0" max="365" step="1"
+                    value="0">
+                <div class="range-value">
+                    <span id="creation_range_min">Start: 01/01/2025</span>
+                    <span id="creation_range_max">End: 12/31/2025</span>
+                </div>
+
+                <!-- Filter by First Album Date Range (using sliders) -->
+                <label>First Album Date Range:</label>
+                <input type="range" id="album_range" class="range-slider" min="0" max="365" step="1" value="0">
+                <div class="range-value">
+                    <span id="album_range_min">Start: 01/01/2025</span>
+                    <span id="album_range_max">End: 12/31/2025</span>
+                </div>
+                <!-- Filter by Number of Members -->
+                <label>Members:</label>
+                <input type="number" id="members_min" placeholder="Min">
+                <input type="number" id="members_max" placeholder="Max">
+
+                <!-- Filter by Concert Locations -->
+                <label>Concert Locations:</label>
+                <div class="checkbox-list" id="locationCheckboxes"></div>
+
+                <button id="applyFilters">Apply</button>
             </div>
         </div>
-    </div>
-    <main>
-        <div class="container">
-            <section id="artists">
-                {{if .}}
+        <main>
+            <div class="container">
+                <section id="artists">
+                    {{if .}}
                     {{range .}}
-                        <a href="/artist/{{.ID}}" class="artist-link">
-                            <div class="artist">
-                                <img src="{{.Image}}" alt="{{.Name}}">
-                                <h2>{{.Name}}</h2>
-                            </div>
-                        </a>
+                    <a href="/artist/{{.ID}}" class="artist-link">
+                        <div class="artist">
+                            <img src="{{.Image}}" alt="{{.Name}}">
+                            <h2>{{.Name}}</h2>
+                        </div>
+                    </a>
                     {{end}}
-                {{else}}
+                    {{else}}
                     <p>No artist(s) found.</p>
-                {{end}}
-            </section>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="logo">
-                <img src="https://i.pinimg.com/736x/95/39/d9/9539d979930342b936b9942d4f9fc484.jpg" class="styled-image">
-                <span>Groupie Tracker</span>
+                    {{end}}
+                </section>
             </div>
-            <nav class="footer-links">
-                <ul>
-                    <li><a href="/Home">Home</a></li>
-                    <li><a href="/dates">Dates</a></li>
-                    <li><a href="/locations">Locations</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="social-media">
-            <a href="https://github.com/nyagooh" target="_blank" rel="noopener noreferrer">
-                <img src="/static/downloadgit.png" alt="GitHub" />
-            </a>
-            <a href="https://www.linkedin.com/in/maina-anne-37797820b/" target="_blank" rel="noopener noreferrer">
-                <img src="/static/downloadlinkdin.png" alt="LinkedIn" />
-            </a>
-        </div>
-    
-        <div class="collaborators">
-            <a href="https://www.linkedin.com/in/maina-anne-37797820b/" target="_blank"><img src="/static/profilr.jpeg" alt="Maina Nyagooh" class="collab-img" /></a>
-            <a href="https://www.linkedin.com/in/kevin-wasonga-3a9050317/" target="_blank"><img src="/static/kevWes.png" alt="Kevin Wesonga" class="collab-img" /></a>
-            <a href="https://www.linkedin.com/in/granton-onyango-298ba6213/" target="_blank"><img src="/static/gonyango.png" alt="Granton Onyango" class="collab-img" /></a>
-        </div>
-    </footer>
-    
-    <script>
-        const menuToggle = document.querySelector('.hamburger');
-    const navbar = document.querySelector('.navbar');
+        </main>
+        <footer>
+            <div class="container">
+                <div class="logo">
+                    <img src="https://i.pinimg.com/736x/95/39/d9/9539d979930342b936b9942d4f9fc484.jpg"
+                        class="styled-image">
+                    <span>Groupie Tracker</span>
+                </div>
+                <nav class="footer-links">
+                    <ul>
+                        <li><a href="/Home">Home</a></li>
+                        <li><a href="/dates">Dates</a></li>
+                        <li><a href="/locations">Locations</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="social-media">
+                <a href="https://github.com/nyagooh" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/downloadgit.png" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/maina-anne-37797820b/" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/downloadlinkdin.png" alt="LinkedIn" />
+                </a>
+            </div>
 
-    menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
-        document.querySelectorAll('.artist').forEach(artist => {
-            artist.addEventListener('mousemove', (e) => {
-                const { left, top, width, height } = artist.getBoundingClientRect();
-                const x = (e.clientX - left) / width;
-                const y = (e.clientY - top) / height;
-                
-                const tiltX = (y - 0.5) * 10;
-                const tiltY = (x - 0.5) * -10;
-                
-                artist.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05,1.05,1.05)`;
+            <div class="collaborators">
+                <a href="https://www.linkedin.com/in/maina-anne-37797820b/" target="_blank"><img
+                        src="/static/profilr.jpeg" alt="Maina Nyagooh" class="collab-img" /></a>
+                <a href="https://www.linkedin.com/in/kevin-wasonga-3a9050317/" target="_blank"><img
+                        src="/static/kevWes.png" alt="Kevin Wesonga" class="collab-img" /></a>
+                <a href="https://www.linkedin.com/in/granton-onyango-298ba6213/" target="_blank"><img
+                        src="/static/gonyango.png" alt="Granton Onyango" class="collab-img" /></a>
+            </div>
+        </footer>
+
+        <script>
+            const menuToggle = document.querySelector('.hamburger');
+            const navbar = document.querySelector('.navbar');
+
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
             });
-            
-            artist.addEventListener('mouseleave', () => {
-                artist.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+            document.querySelectorAll('.artist').forEach(artist => {
+                artist.addEventListener('mousemove', (e) => {
+                    const { left, top, width, height } = artist.getBoundingClientRect();
+                    const x = (e.clientX - left) / width;
+                    const y = (e.clientY - top) / height;
+
+                    const tiltX = (y - 0.5) * 10;
+                    const tiltY = (x - 0.5) * -10;
+
+                    artist.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05,1.05,1.05)`;
+                });
+
+                artist.addEventListener('mouseleave', () => {
+                    artist.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+                });
             });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.navbar ul');
+            document.addEventListener('DOMContentLoaded', function () {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.navbar ul');
 
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('show');
+                hamburger.addEventListener('click', function () {
+                    navMenu.classList.toggle('show');
+                });
             });
-        });
-       function toggleDropdown() {
-    const filterPanel = document.getElementById("filterPanel");
-    
-    if (filterPanel.classList.contains("active")) {
-        filterPanel.classList.remove("active");
-        setTimeout(() => {
-            filterPanel.style.display = "none";
-        }, 300); // Wait for animation to finish before hiding
-    } else {
-        filterPanel.style.display = "block";
-        setTimeout(() => {
-            filterPanel.classList.add("active");
-        }, 10); // Small delay to trigger animation
-    }
-}
-document.getElementById("closeFilter").addEventListener("click", function() {
-    document.getElementById("filterPanel").style.display = "none";
-  });
-  createLocationCheckboxes();
+            function toggleDropdown() {
+                const filterPanel = document.getElementById("filterPanel");
 
-// Handle the range slider value change for Creation Date
-document.getElementById('creation_range').addEventListener('input', function () {
-  const minDate = new Date();
-  minDate.setDate(minDate.getDate() + this.value);
-  const maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
-  document.getElementById('creation_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
-  document.getElementById('creation_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
-});
+                if (filterPanel.classList.contains("active")) {
+                    filterPanel.classList.remove("active");
+                    setTimeout(() => {
+                        filterPanel.style.display = "none";
+                    }, 300); // Wait for animation to finish before hiding
+                } else {
+                    filterPanel.style.display = "block";
+                    setTimeout(() => {
+                        filterPanel.classList.add("active");
+                    }, 10); // Small delay to trigger animation
+                }
+            }
+            document.getElementById("closeFilter").addEventListener("click", function () {
+                document.getElementById("filterPanel").style.display = "none";
+            });
+            createLocationCheckboxes();
 
-// Handle the range slider value change for First Album Date
-document.getElementById('album_range').addEventListener('input', function () {
-  const minDate = new Date();
-  minDate.setDate(minDate.getDate() + this.value);
-  const maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
-  document.getElementById('album_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
-  document.getElementById('album_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
-});
+            // Handle the range slider value change for Creation Date
+            document.getElementById('creation_range').addEventListener('input', function () {
+                const minDate = new Date();
+                minDate.setDate(minDate.getDate() + this.value);
+                const maxDate = new Date();
+                maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
+                document.getElementById('creation_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
+                document.getElementById('creation_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
+            });
 
-document.getElementById("closeFilter").addEventListener("click", function() {
-  document.getElementById("filterPanel").style.display = "none";
-})
+            // Handle the range slider value change for First Album Date
+            document.getElementById('album_range').addEventListener('input', function () {
+                const minDate = new Date();
+                minDate.setDate(minDate.getDate() + this.value);
+                const maxDate = new Date();
+                maxDate.setDate(maxDate.getDate() + (this.value + 30)); // Adding 30 days for the range
+                document.getElementById('album_range_min').textContent = `Start: ${minDate.toLocaleDateString()}`;
+                document.getElementById('album_range_max').textContent = `End: ${maxDate.toLocaleDateString()}`;
+            });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.querySelector('.search-input');
-            const suggestionsContainer = document.querySelector('.suggestions');
+            document.getElementById("closeFilter").addEventListener("click", function () {
+                document.getElementById("filterPanel").style.display = "none";
+            })
 
-            searchInput.addEventListener('input', function() {
-                const query = searchInput.value.toLowerCase();
-                fetch(`/search?q=${query}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        suggestionsContainer.innerHTML = '';
-                        data.forEach(item => {
-                            const suggestionItem = document.createElement('div');
-                            suggestionItem.classList.add('suggestion-item');
-                            suggestionItem.textContent = `${item.name} - ${item.type}`;
-                            suggestionsContainer.appendChild(suggestionItem);
+            document.addEventListener('DOMContentLoaded', function () {
+                const searchInput = document.querySelector('.search-input');
+                const suggestionsContainer = document.querySelector('.suggestions');
+
+                searchInput.addEventListener('input', function () {
+                    const query = searchInput.value.toLowerCase();
+                    fetch(`/search?q=${query}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            suggestionsContainer.innerHTML = '';
+                            data.forEach(item => {
+                                const suggestionItem = document.createElement('div');
+                                suggestionItem.classList.add('suggestion-item');
+                                suggestionItem.textContent = `${item.name} - ${item.type}`;
+                                suggestionsContainer.appendChild(suggestionItem);
+                            });
                         });
-                    });
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
