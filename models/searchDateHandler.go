@@ -17,7 +17,7 @@ func SearchDatesHandler(w http.ResponseWriter, r *http.Request) {
 
 	artists, err := services.FetchAndUnmarshalArtists()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -41,13 +41,14 @@ func SearchDatesHandler(w http.ResponseWriter, r *http.Request) {
 
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "index.html"))
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
 	err = tmpl.Execute(w, filteredArtists)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
+		return
 	}
 }
 
