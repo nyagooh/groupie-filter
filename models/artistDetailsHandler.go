@@ -17,13 +17,13 @@ func ArtistDetailsHandler(w http.ResponseWriter, r *http.Request) {
 	artistIDStr := strings.TrimPrefix(r.URL.Path, "/artist/")
 	artistID, err := strconv.Atoi(artistIDStr)
 	if err != nil {
-		http.Error(w, "Invalid artist ID", http.StatusBadRequest)
+		HandleError(w, badRequest, "badrequest")
 		return
 	}
 
 	artists, err := services.FetchAndUnmarshalArtists()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -37,18 +37,19 @@ func ArtistDetailsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if artist == nil {
-		http.Error(w, "Artist not found", http.StatusNotFound)
+		HandleError(w, notFound, "pagenotfound")
 		return
 	}
 
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "artistdetails.html"))
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
 	err = tmpl.Execute(w, artist)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
+		return
 	}
 }
