@@ -12,16 +12,6 @@ import (
 )
 
 func main() {
-	// Example usage.............to test filtering or artists according to given parameters
-	
-
-
-	// Call the filter function with the sample criteria and artists
-	
-
-	// Print the filtered artists
-	//................
-	// Serve static files
 	staticDir := filepath.Join(".", "static")
 	fs := http.FileServer(http.Dir(staticDir))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -38,6 +28,8 @@ func main() {
 	//http.HandleFunc("/searchMap", models.SearchMapHandler)
 
 	http.HandleFunc("/searchDate", models.SearchDatesHandler)
+	// http.HandleFunc("/filter", models.FilteredArtistsHandler)
+	http.HandleFunc("/error", models.ErrorHandler)
 
 	fmt.Println("Server is starting...")
 	fmt.Println("Go on http://localhost:8080/")
@@ -51,9 +43,16 @@ func main() {
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	artists, err := services.FetchAndUnmarshalArtists()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		models.HandleError(w, http.StatusInternalServerError, "Internal Server Error")
 		return
 	}
+
+	if r.URL.Path != "/" {
+		models.HandleError(w, http.StatusNotFound, "Page not found")
+		models.Feedback = "This page does not exist"
+		return
+	}
+
 	tmpl := template.Must(template.ParseFiles("templates/index.html"))
 	tmpl.Execute(w, artists)
 }
