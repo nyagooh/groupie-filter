@@ -19,7 +19,7 @@ func LocationsHandler(w http.ResponseWriter, r *http.Request) {
 	// Fetch artist data
 	artists, err := services.FetchAndUnmarshalArtists()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -32,7 +32,7 @@ func LocationsHandler(w http.ResponseWriter, r *http.Request) {
 	// Fetch locations data
 	locationsData, err := services.FetchAndUnmarshalLocations()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -52,7 +52,7 @@ func LocationsHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse the HTML template file
 	tmpl, err := template.ParseFiles(filepath.Join("templates", "locations.html"))
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
 		return
 	}
 
@@ -63,6 +63,7 @@ func LocationsHandler(w http.ResponseWriter, r *http.Request) {
 		Index: artistLocations,
 	})
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		HandleError(w, internalServerError, "internalservererror")
+		return
 	}
 }
